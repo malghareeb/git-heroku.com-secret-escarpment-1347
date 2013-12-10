@@ -1,0 +1,35 @@
+<div data-role="header">
+  <h1>Listing contacts</h1>
+</div>
+
+<div data-role="content">
+
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody data-role="listview">
+    <% @contacts.each do |contact| %>
+        <tr>
+          <td><%= contact.Name %></td>
+          <td><%= contact.Phone %></td>
+          <td><%= link_to 'Show', contact %></td>
+          <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+          <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<div data-role="footer">
+  <%= link_to 'New Contact', new_contact_path %>
+</div>
